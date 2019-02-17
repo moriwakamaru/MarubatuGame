@@ -8,25 +8,25 @@ public class marubatuGame
 
 
 		String[][]bord=new String[3][3];
-		System.out.println("‚Ü‚é‚Î‚ÂƒQ[ƒ€‚ğn‚ß‚Ü‚·Iƒ{[ƒh‚Í3~3‚Å‚·");
-		Player Player1=new Player("Z");
-		Player Player2=new Player("~");
+		System.out.println("ã¾ã‚‹ã°ã¤ã‚²ãƒ¼ãƒ ã‚’å§‹ã‚ã¾ã™ï¼ãƒœãƒ¼ãƒ‰ã¯3Ã—3ã§ã™");
+		Player Player1=new Player("ã€‡");
+		Player Player2=new Player("Ã—");
 		for(int turnNo=1;turnNo<5;turnNo++)
 		{
-			System.out.println("`ƒ^[ƒ“"+turnNo+"`");
+			System.out.println("ï½ã‚¿ãƒ¼ãƒ³"+turnNo+"ï½");
 			outPutData(bord);
-			System.out.println("Player1‚Ì”Ô‚Å‚·");
+			System.out.println("Player1ã®ç•ªã§ã™");
 			Player1.selectSpace(bord);
 			if(Judge(bord)==-1)break;
 
 			outPutData(bord);
-			System.out.println("Player2‚Ì”Ô‚Å‚·");
+			System.out.println("Player2ã®ç•ªã§ã™");
 			Player2.selectSpace(bord);
 			if(Judge(bord)==-1)break;
 
 		}
 		outPutData(bord);
-		if(Judge(bord)==-0)System.out.println("Œˆ’…‚ª‚Â‚«‚Ü‚¹‚ñ‚Å‚µ‚½B‚Ü‚é‚Î‚ÂƒQ[ƒ€‚ğI—¹‚µ‚Ü‚·B");
+		if(Judge(bord)==0)System.out.println("æ±ºç€ãŒã¤ãã¾ã›ã‚“ã§ã—ãŸã€‚ã¾ã‚‹ã°ã¤ã‚²ãƒ¼ãƒ ã‚’çµ‚äº†ã—ã¾ã™ã€‚");
 
 	}
 
@@ -53,14 +53,14 @@ public class marubatuGame
 				||(bord[2][0]==bord[1][1]&&bord[2][0]==bord[0][2]&&bord[1][1]!=null) || (bord[0][0]==bord[1][1]&&bord[0][0]==bord[2][2]&&bord[1][1]!=null))
 
 		{
-			if(bord[0][0]=="Z"||bord[1][1]=="Z"||bord[2][2]=="Z")
+			if(bord[0][0]=="ã€‡"||bord[1][1]=="ã€‡"||bord[2][2]=="ã€‡")
 			{
-				System.out.println("Player1‚ÌŸ—˜‚Å‚·");
+				System.out.println("Player1ã®å‹åˆ©ã§ã™");
 			}else
 			{
-				System.out.println("Player2‚ÌŸ—˜‚Å‚·");
+				System.out.println("Player2ã®å‹åˆ©ã§ã™");
 			}
-			System.out.println("‚Ü‚é‚Î‚ÂƒQ[ƒ€‚ğI—¹‚µ‚Ü‚·B");
+			System.out.println("ã¾ã‚‹ã°ã¤ã‚²ãƒ¼ãƒ ã‚’çµ‚äº†ã—ã¾ã™ã€‚");
 			return -1;
 
 		}
