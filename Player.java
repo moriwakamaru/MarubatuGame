@@ -4,24 +4,26 @@ import java.util.Scanner;
 
 public class Player {
 
-	static int selectRow=0;
-	static int selectColumn=0;
-	String mark;
+	public int selectRow;
+	public int selectColumn;
+	public String mark;
+	public String name;
 
-	Player(String usedMark)
+	Player(String usedMark,String playername)
 	{
 		mark=usedMark;
+		name=playername;
 	}
 	
-	void selectSpace(String board[][],Scanner sc)
+	public void selectSpace(String board[][],Scanner sc)
 	{
 		while(true)
 		{
-			selectRow=selectRow(sc);
-			selectColumn=selectColumn(sc);
-			if(board[selectRow][selectColumn]==null)
+			selectRow(sc);
+			selectColumn(sc);
+			if(board[this.selectRow][this.selectColumn]==null)
 			{
-				board[selectRow][selectColumn]=mark;
+				board[this.selectRow][this.selectColumn]=mark;
 				break;
 			}else
 			{
@@ -31,18 +33,19 @@ public class Player {
 		}
 	}
 	
-	public static int selectRow(Scanner sc)
+	void selectRow(Scanner sc)
 	{
 		
 		System.out.println("行を選択してください");
-		return  sc.nextInt();
+		this.selectRow= sc.nextInt();
 
 
 	}
-	public static int selectColumn(Scanner sc)
+	void selectColumn(Scanner sc)
 	{
 		
 		System.out.println("列を選択してください");
-		return sc.nextInt();
+		this.selectColumn=sc.nextInt();
 	}
+	
 }
