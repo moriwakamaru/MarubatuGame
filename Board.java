@@ -2,14 +2,49 @@ package marubatuGame;
 
 import java.util.Scanner;
 
-public class Judge {
+public class Board {
 	
-	public static void Line(String board[][],Scanner sc,int size,Player player)
+	public static int size=3;
+	public static String[][]board=new String[size][size];
+	
+	public static void outPutData(String board[][],int size)
+	{
+		for(int i=0;i<=size-1;i++)
+		{
+			for(int j=0;j<=size-1;j++)
+			{
+				if(board[i][j]==null)
+				{
+					System.out.print("　");
+				}else
+				{
+					System.out.print(board[i][j]);
+				}
+				
+				if(j==size-1)
+				{
+					System.out.println("");
+					break;
+				}
+				System.out.print("|");
+			}
+			for(int j=0;j<=size;j++)
+			{
+				if(i==size-1)break;
+				System.out.print("─");
+			}
+			System.out.println("");
+			
+		}
+	}
+
+	
+	public static void judgeLine(String board[][],Scanner sc,int size,Player player)
 	{
 		//横にならんでいるか
         int tmp = 0;
         for(int x=0; x<size; x++){
-            if(board[x][player.selectColumn] == player.mark)tmp++;
+            if(board[x][player.selectedColumn] == player.mark)tmp++;
         }
         if(tmp==size)win(player);
         	
@@ -17,7 +52,7 @@ public class Judge {
       //縦にならんでいるか
         tmp = 0;
         for(int y=0; y<size; y++){
-            if(board[player.selectRow][y] ==  player.mark)tmp++;
+            if(board[player.selectedRow][y] ==  player.mark)tmp++;
         }
         if(tmp==size)win(player);
 

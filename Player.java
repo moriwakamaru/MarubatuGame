@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Player {
 
-	public int selectRow;
-	public int selectColumn;
+	public int selectedRow;
+	public int selectedColumn;
 	public String mark;
 	public String name;
 
@@ -21,13 +21,13 @@ public class Player {
 		{
 			selectRow(sc);
 			selectColumn(sc);
-			if(board[this.selectRow][this.selectColumn]==null)
+			if(board[selectedRow][selectedColumn]==null)
 			{
-				board[this.selectRow][this.selectColumn]=mark;
+				board[selectedRow][selectedColumn]=mark;
 				break;
 			}else
 			{
-				System.out.println("選択済みもしくは範囲外です。\\nもう一度選択してください。");
+				System.out.println("選択済みもしくは範囲外です。もう一度選択してください。");
 				continue;
 			}
 		}
@@ -35,17 +35,25 @@ public class Player {
 	
 	void selectRow(Scanner sc)
 	{
-		
 		System.out.println("行を選択してください");
-		this.selectRow= sc.nextInt();
-
-
+		selectedRow= sc.nextInt();
+		if(selectedRow<0||selectedRow>2)
+		{
+			System.out.println("選択済みもしくは範囲外です。もう一度選択してください。");
+			selectRow(sc);
+		}
 	}
+	
+	
 	void selectColumn(Scanner sc)
 	{
-		
 		System.out.println("列を選択してください");
-		this.selectColumn=sc.nextInt();
+		selectedColumn=sc.nextInt();
+		if(selectedColumn<0||selectedColumn>2)
+		{
+			System.out.println("選択済みもしくは範囲外です。\\nもう一度選択してください。");
+			selectColumn(sc);
+		}
 	}
 	
 }
