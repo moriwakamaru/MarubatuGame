@@ -16,18 +16,18 @@ public class MarubatuGame
 		{
 			System.out.println("～ターン"+turnNo+"～");
 			
-			Board.outPutData(Board.board,Board.size);
+			Board.outPutData();
 			System.out.println("Player1の番です");
-			player1.selectSpace(Board.board,sc);
-			Board.judgeLine(Board.board,sc,Board.size,player1);
+			player1.selectSpace(sc);
+			Board.judgeLine(player1);
 			if(turnNo==(Board.size*Board.size)/2)break;
 
-			Board.outPutData(Board.board,Board.size);
+			Board.outPutData();
 			System.out.println("Player2の番です");
-			player2.selectSpace(Board.board,sc);
-			Board.judgeLine(Board.board,sc,Board.size,player2);
+			player2.selectSpace(sc);
+			Board.judgeLine(player2);
 		}
-		Board.outPutData(Board.board,Board.size);
+		Board.outPutData();
 		System.out.println("決着がつきませんでした。まるばつゲームを終了します。");
 	}
 

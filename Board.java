@@ -1,13 +1,11 @@
 package marubatuGame;
 
-import java.util.Scanner;
-
 public class Board {
 	
-	public static int size=3;
-	public static String[][]board=new String[size][size];
+	static int size=3;
+	static String[][]board=new String[size][size];
 	
-	public static void outPutData(String board[][],int size)
+	public static void outPutData()
 	{
 		for(int i=0;i<=size-1;i++)
 		{
@@ -39,43 +37,42 @@ public class Board {
 	}
 
 	
-	public static void judgeLine(String board[][],Scanner sc,int size,Player player)
+	public static void judgeLine(Player player)
 	{
 		//横にならんでいるか
         int tmp = 0;
-        for(int x=0; x<size; x++){
+        for(int x=0; x<size; x++)
+        {
             if(board[x][player.selectedColumn] == player.mark)tmp++;
         }
-        if(tmp==size)win(player);
+        if(tmp==size)Player.win(player);
         	
         
       //縦にならんでいるか
         tmp = 0;
-        for(int y=0; y<size; y++){
+        for(int y=0; y<size; y++)
+        {
             if(board[player.selectedRow][y] ==  player.mark)tmp++;
         }
-        if(tmp==size)win(player);
+        if(tmp==size)Player.win(player);
 
         //ななめにならんでいるか
         tmp = 0;
-        for(int x=0; x<size; x++){
+        for(int x=0; x<size; x++)
+        {
             if(board[x][x] == player.mark)tmp++;
         }
-        if(tmp==size)win(player);
+        if(tmp==size)Player.win(player);
 
         //ななめにならんでいるか
         tmp = 0;
-        for(int x=0; x<size; x++){
+        for(int x=0; x<size; x++)
+        {
             if(board[x][size-1-x] == player.mark)tmp++;
         }
-        if(tmp==size)win(player);
+        if(tmp==size)Player.win(player);
 
 	}
 
-	static void win(Player player)
-	{
-		System.out.println(player.name+"の勝ちです");
-		System.out.println("まるばつゲームを終了します。");
-		System.exit(0);
-	}
+	
 }
